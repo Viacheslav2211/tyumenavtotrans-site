@@ -1,0 +1,498 @@
+:root {
+  --ink: #122126;
+  --muted: #5b6870;
+  --line: #dce5e8;
+  --paper: #f7faf9;
+  --white: #ffffff;
+  --teal: #007f84;
+  --teal-dark: #005a60;
+  --amber: #f5a623;
+  --asphalt: #243238;
+  --shadow: 0 18px 50px rgba(24, 39, 44, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family:
+    Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.55;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px clamp(20px, 5vw, 72px);
+  background: rgba(247, 250, 249, 0.9);
+  border-bottom: 1px solid rgba(220, 229, 232, 0.8);
+  backdrop-filter: blur(16px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 220px;
+}
+
+.brand-mark {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--teal);
+  color: var(--white);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.brand-name,
+.brand-caption {
+  display: block;
+}
+
+.brand-name {
+  font-weight: 800;
+}
+
+.brand-caption {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.main-nav a {
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  padding: 8px 10px;
+}
+
+.main-nav a:hover {
+  background: var(--white);
+  color: var(--ink);
+}
+
+.hero {
+  position: relative;
+  min-height: calc(100vh - 77px);
+  overflow: hidden;
+  display: grid;
+  align-items: center;
+  padding: clamp(64px, 10vw, 112px) clamp(20px, 5vw, 72px);
+}
+
+.hero-image,
+.hero-shade {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-shade {
+  background:
+    linear-gradient(90deg, rgba(8, 24, 27, 0.86), rgba(8, 24, 27, 0.56) 42%, rgba(8, 24, 27, 0.08)),
+    linear-gradient(0deg, rgba(247, 250, 249, 0.12), rgba(247, 250, 249, 0));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  color: var(--white);
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eyebrow.dark {
+  color: var(--teal);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 690px;
+  margin-bottom: 20px;
+  font-size: clamp(40px, 7vw, 76px);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin-bottom: 18px;
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.hero-text {
+  max-width: 610px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 19px;
+}
+
+.hero-actions,
+.route-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  padding: 12px 18px;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button.primary {
+  background: var(--amber);
+  color: #182126;
+}
+
+.button.secondary {
+  border-color: rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+
+.section {
+  padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 72px);
+}
+
+.stats-band {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  padding-top: 0;
+  padding-bottom: 0;
+  background: var(--line);
+}
+
+.stat {
+  background: var(--white);
+  padding: clamp(26px, 5vw, 42px);
+}
+
+.stat strong,
+.stat span {
+  display: block;
+}
+
+.stat strong {
+  margin-bottom: 5px;
+  color: var(--teal-dark);
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1;
+}
+
+.stat span,
+.section-copy,
+.section-heading p,
+.service-card p,
+.route-card p {
+  color: var(--muted);
+}
+
+.two-column,
+.section-heading,
+.contacts {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(28px, 6vw, 84px);
+}
+
+.section-copy {
+  max-width: 720px;
+  font-size: 18px;
+}
+
+.section-heading {
+  align-items: end;
+  margin-bottom: 30px;
+}
+
+.section-heading p {
+  max-width: 520px;
+  margin-bottom: 0;
+}
+
+.routes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.route-card,
+.service-card,
+.contact-list a {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 1px 0 rgba(18, 33, 38, 0.03);
+}
+
+.route-card {
+  display: flex;
+  min-height: 190px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.route-card:hover {
+  border-color: rgba(0, 127, 132, 0.28);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.route-number {
+  display: inline-grid;
+  width: 58px;
+  min-width: 58px;
+  height: 44px;
+  place-items: center;
+  border-left: 5px solid var(--amber);
+  background: #eef7f6;
+  color: var(--teal-dark);
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.route-card p {
+  margin: 18px 0 22px;
+}
+
+.route-link {
+  color: var(--teal-dark);
+  font-weight: 800;
+}
+
+.passengers {
+  background: var(--asphalt);
+  color: var(--white);
+}
+
+.passengers .eyebrow.dark {
+  color: var(--amber);
+}
+
+.passengers .section-heading p,
+.passengers .service-card p {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.passenger-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.service-card {
+  padding: clamp(22px, 4vw, 34px);
+  background: #19282e;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.card-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 20px;
+  place-items: center;
+  border-radius: 8px;
+  background: rgba(245, 166, 35, 0.16);
+  color: var(--amber);
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.mini-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--white);
+  font: inherit;
+  padding: 12px 13px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.contacts {
+  align-items: start;
+}
+
+.contact-list {
+  display: grid;
+  gap: 12px;
+}
+
+.contact-list a {
+  display: grid;
+  gap: 3px;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.contact-list span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 26px clamp(20px, 5vw, 72px);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.site-footer a {
+  color: var(--teal-dark);
+  font-weight: 800;
+}
+
+@media (max-width: 980px) {
+  .site-header,
+  .two-column,
+  .section-heading,
+  .contacts {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header {
+    display: grid;
+  }
+
+  .main-nav {
+    justify-content: flex-start;
+  }
+
+  .routes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .hero {
+    min-height: 690px;
+    align-items: end;
+  }
+
+  .hero-shade {
+    background: linear-gradient(0deg, rgba(8, 24, 27, 0.92), rgba(8, 24, 27, 0.45));
+  }
+
+  .stats-band,
+  .routes-grid,
+  .passenger-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .main-nav a {
+    padding-left: 0;
+  }
+
+  .site-footer {
+    flex-direction: column;
+  }
+}
